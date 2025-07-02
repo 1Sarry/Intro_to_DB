@@ -10,9 +10,13 @@ cursor = mydb.cursor()
 
 with open("alx_book_store.sql", "r")as file:
     sql_script = file.read()
+statements = sql_script.split(';')
 try:
-    cursor.execute(sql_script)  
-    print("SQL script execured successfully.") 
+    for stmt in statements:
+        stmt = stmt.strip()
+        if stmt:  # skip empty lines
+            cursor.execute(stmt)
+    print("SQL script executed successfully.")
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
