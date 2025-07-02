@@ -16,7 +16,7 @@ try:
         stmt = stmt.strip()
         if stmt:  # skip empty lines
             cursor.execute(stmt)
-    print("SQL script executed successfully.")
+    print("Database 'alx_book_store' created successfully!")
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
